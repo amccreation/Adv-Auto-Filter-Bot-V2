@@ -38,7 +38,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me/vishnuprasad01"
+                                    'status bot', url="https://t.me/amc_status_bot"
                                 )
                         ]
                     ]
@@ -89,7 +89,7 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton('Developers', url='https://t.me/vishnuprasad01'),
+        InlineKeyboardButton('status bot', url='https://t.me/amc_status_bot'),
         InlineKeyboardButton('Source', url ='https://t.me/M_M_Counter')
     ],[
         InlineKeyboardButton('Support 🛠', url='https://t.me/M_M_Counter')
