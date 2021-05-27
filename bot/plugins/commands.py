@@ -107,7 +107,13 @@ async def start(bot, update):
         parse_mode="html",
         reply_to_message_id=update.message_id
     )
-
+Send_message = await bot.send_message(
+            chat_id=update.chat.id,
+            text="<b>Couldn't Find This Movie.Try Again ഈ സിനിമയുടെ ഒറിജിനൽ പേര് ഗൂഗിളിൽ പോയി കണ്ടെത്തി അതുപോലെ ഇവിടെ കൊടുക്കുക 🥺അല്ലെങ്കിൽ @admin ഉപയോഗിച്ച് request ചെയ്യുക</b>",
+            reply_to_message_id=update.message_id
+        )
+         await asyncio.sleep(5)
+         await Send_message.delete()
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
