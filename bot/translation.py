@@ -5,10 +5,13 @@
 class Translation(object):
     
     START_TEXT = """<b>Hey {}!!</b>
-<i>Am a Filter Bot....😉
+<i>Am Lisa a bot to filter movies ....😉
 
-Of @M_M_Counter
-/b
+
+For using me You want to add me with admin permissions
+
+@M_M_Counter
+
 
 
 </i>"""    
@@ -43,7 +46,7 @@ Of @M_M_Counter
             
             -> <code>Status</code> - Button Will Shows The Stats Of Your Channel
             
-@CrazyBotsz
+@M_M_Counter
 """
     
     ABOUT_TEXT = """<b>➥ Name</b> : <code> Auto Filter Bot</code>
