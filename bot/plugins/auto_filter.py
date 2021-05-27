@@ -15,7 +15,7 @@ INVITE_LINK = {}
 ACTIVE_CHATS = {}
 db = Database()
 
-@Bot.on_message(filters.text & filters.group & ~filters.bot, group=0)
+@Bot.on_message(filters.text & filters.group, group=0)
 async def auto_filter(bot, update):
     """
     A Funtion To Handle Incoming Text And Reply With Appropriate Results
@@ -64,26 +64,7 @@ async def auto_filter(bot, update):
             file_name = filter.get("file_name")
             file_type = filter.get("file_type")
             file_link = filter.get("file_link")
-            file_size = int(filter.get("file_size", "0"))
             
-            # from B to MiB
-            
-            if file_size < 1024:
-                file_size = f"[{file_size} B]"
-            elif file_size < (1024**2):
-                file_size = f"[{str(round(file_size/1024, 2))} KiB] "
-            elif file_size < (1024**3):
-                file_size = f"[{str(round(file_size/(1024**2), 2))} MiB] "
-            elif file_size < (1024**4):
-                file_size = f"[{str(round(file_size/(1024**3), 2))} GiB] "
-            
-            
-            file_size = "" if file_size == ("[0 B]") else file_size
-            
-            # add emoji down below inside " " if you want..
-            button_text = f"{file_size}{file_name}"
-            
-
             if file_type == "video":
                 if allow_video: 
                     pass
@@ -121,12 +102,18 @@ async def auto_filter(bot, update):
             
             results.append(
                 [
-                    InlineKeyboardButton(button_text, url=file_link)
+                    InlineKeyboardButton(file_name, url=file_link)
                 ]
             )
         
     else:
-        return # return if no files found for that query
+        Send_message = await bot.send_message(
+            chat_id=update.chat.id,
+            text="<b>Couldn't Find This Movie.Try Again ഈ സിനിമയുടെ ഒറിജിനൽ പേര് ഗൂഗിളിൽ പോയി കണ്ടെത്തി അതുപോലെ ഇവിടെ കൊടുക്കൂ🥺 എന്നിട്ടും കിട്ടിയില്ലെങ്കിൽ @admin ഉപയോഗിച്ച് reqeste ചെയ്യുക </b>",
+            reply_to_message_id=update.message_id
+        )
+        await asyncio.sleep(10)
+        await Send_message.delete()
     
 
     if len(results) == 0: # double check
@@ -285,4 +272,3 @@ async def recacher(group_id, ReCacheInvite=True, ReCacheActive=False, bot=Bot, u
             
             ACTIVE_CHATS[str(group_id)] = achatId
     return 
-
