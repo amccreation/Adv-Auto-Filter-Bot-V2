@@ -54,7 +54,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'status bot', url="https://t.me/amc_status_bot"
+                                    'Take sample video', url="http://t.me/sshotbot"
                                 )
                         ]
                     ]
