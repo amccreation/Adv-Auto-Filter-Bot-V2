@@ -479,7 +479,9 @@ class Database(metaclass=Singleton):
         file_type = None
         file_name = None
         file_caption = None
-        
+        file_name = None
+        file_caption = None
+
         if file:
             file_id = file.get("file_id")
             file_name = file.get("file_name")
