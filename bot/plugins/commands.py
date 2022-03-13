@@ -54,7 +54,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Take sample video', url="http://t.me/sshotbot"
+                                    ' for sample video -Forward files to that bot', url="http://t.me/TheScreenShotBot"
                                 )
                         ]
                     ]
